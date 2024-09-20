@@ -18,6 +18,10 @@
 #                                                                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+import signal
+import sys
+import threading
+
 from OpenBench.watcher import ArtifactWatcher
 from OpenBench.pgn_watcher import PGNWatcher
 
@@ -25,15 +29,39 @@ from django.core.management.commands.runserver import Command as BaseRunserverCo
 
 class Command(BaseRunserverCommand):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        signal.signal(signal.SIGINT, self.signal_handler)
+        signal.signal(signal.SIGTERM, self.signal_handler)
+
     def inner_run(self, *args, **options):
         self.pre_start()
         super().inner_run(*args, **options)
         self.pre_quit()
 
     def pre_start(self):
-        self.watcher = ArtifactWatcher().start()
-        self.pgn_watcher = PGNWatcher().start()
+
+        self.watcher = ArtifactWatcher()
+        self.watcher.start()
+
+        self.stop_event  = threading.Event()
+        self.pgn_watcher = PGNWatcher(self.stop_event)
+        self.pgn_watcher.start()
 
     def pre_quit(self):
+        print ('ran pre_quit stuff')
         self.watcher.kill()
         self.pgn_watcher.kill()
+
+    def signal_handler(self, sig, frame):
+
+        if not hasattr(self, 'stop_event') or not hasattr(self, 'pgn_watcher'):
+            return
+
+        self.stop_event.set()
+        self.pgn_watcher.join()
+
+        # Resume catching signals like normal, and re-reaise
+        signal.signal(signal.SIGINT, signal.SIG_DFL)
+        signal.signal(signal.SIGTERM, signal.SIG_DFL)
+        signal.raise_signal(sig)
