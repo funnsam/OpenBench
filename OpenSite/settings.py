@@ -19,8 +19,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECURITY WARNING: don't run with debug turned on in production!
+# this isnt the one on my pythonanywhere onstance
 SECRET_KEY = '%mvnbi@0&2!(!w%=ptcqh92zpg(@681b9im)-^3p5(tnzhss#-'
-DEBUG = False
+# false will make it fail to load css
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
