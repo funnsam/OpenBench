@@ -4,7 +4,7 @@
     "source"  : "https://github.com/funnsam/Dysprosium",
 
     "build" : {
-        "path"      : "src",
+        "path"      : "",
         "compilers" : ["cargo"],
         "cpuflags"  : [],
         "systems"   : ["Windows", "Linux"]
