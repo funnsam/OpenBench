@@ -1,17 +1,17 @@
 
 a:link, a:visited, a:hover, a:active {
     text-decoration: none;
-    color: #8BBAD6;
+    color: #89b4fa;
 }
 
 body {
-    --color1: #222222;
-    --color2: #2D2D2D;
+    --color1: #1e1e2e;
+    --color2: #313244;
     --color3: #3B3B3B;
 
-    --color-font1: #DBDEE1;
-    --color-font2: #949BA4;
-    --color-font3: #008F11;
+    --color-font1: #cdd6f4;
+    --color-font2: #bac2de;
+    --color-font3: #a6e3a1;
 
     background-color: var(--color1);
 
@@ -74,7 +74,7 @@ body, html, main{
 }
 
 #sidebar li:hover {
-    background-color: #303030;
+    background-color: #313244;
 }
 
 #sidebar .header {
@@ -104,11 +104,11 @@ body, html, main{
 /* Tables that have hoverable table rows */
 
 #content .hoverable tr:nth-child(odd):hover:not(.table-header) {
-    background-color: #323232;
+    background-color: #313244;
 }
 
 #content .hoverable tr:nth-child(even):hover:not(.table-header) {
-    background-color: #323232;
+    background-color: #313244;
 }
 
 #content .hoverable tr:hover{
@@ -142,13 +142,13 @@ body, html, main{
 #content .table-header th {
     color: var(--color-font3);
     font-weight: 400;
-    background-color: #171717;
+    background-color: #181825;
 }
 
 #content .table-small-header th {
     color: var(--color-font3);
     font-size: small;
-    background-color: #171717;
+    background-color: #181825;
 }
 
 /* Table Spacer for chaining Tables as a hack */
@@ -159,7 +159,7 @@ body, html, main{
 }
 
 #content .table-spacer-small th, #content .table-spacer-small tr {
-    background-color: #171717;
+    background-color: #181825;
     height: 0.4rem;
     padding: 0px;
 }
@@ -275,30 +275,30 @@ body, html, main{
     font-size: 13px;
     color: black;
     line-height: 92%;
-    background-color: #CCCCCC;
+    background-color: #6c7086;
     font-family: "Courier New";
     border-radius: 4px;
     padding: 7px 10px 4px;
 }
 
 #content .statblock-green {
-    background-color: #76D576;
+    background-color: #a6e3a1;
 }
 
 #content .statblock-blue {
-    background-color: #60F0FF;
+    background-color: #89b4fa;
 }
 
 #content .statblock-yellow {
-    background-color: #EFF891;
+    background-color: #f9e2af;
 }
 
 #content .statblock-red {
-    background-color: #FA9696;
+    background-color: #f38ba8;
 }
 
 #content .redlink {
-    color: #FF4D4D;
+    color: #f38ba8;
 }
 
 /* Long StatBlock which we can copy */
