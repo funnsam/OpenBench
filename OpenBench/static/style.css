@@ -197,8 +197,9 @@ body, html, main{
 #content .anchorbutton {
     border-radius: 4px;
     padding: 8px 0px 6px;
-    border-color: transparent;
+    border: 1px solid var(--color3);
     color: var(--color-font1);
+    background-color: var(--color3);
     display: inline-block;
     text-align: center;
     transition: background-color 0.3s ease;
@@ -208,28 +209,28 @@ body, html, main{
 }
 
 #content .btn-blue {
-    background-color: #89b4fa;
+    border-color: #89b4fa;
 }
 
 #content .btn-start {
-    background-color: #89b4fa;
+    border-color: #89b4fa;
     width: 100%;
 }
 
 #content .btn-preset {
-    background-color: #a6e3a1;
+    border-color: #a6e3a1;
 }
 
 #content .btn-yellow {
-    background-color: #f9e2af;
+    border-color: #f9e2af;
 }
 
 #content .btn-red {
-    background-color: #f9e2af;
+    border-color: #f38ba8;
 }
 
 #content .btn-disabled {
-    background-color: var(--color3);
+    background-color: #11111b;
 }
 
 #content .btn-blue:hover {
@@ -253,7 +254,6 @@ body, html, main{
 }
 
 #content .btn-disabled:hover {
-    background-color: var(--color3);
     cursor: not-allowed;
     transform: none;
 }
