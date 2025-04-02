@@ -6,8 +6,8 @@ a:link, a:visited, a:hover, a:active {
 
 body {
     --color1: #1e1e2e;
-    --color2: #313244;
-    --color3: #45475a;
+    --color2: #181825;
+    --color3: #313244;
 
     --color-font1: #cdd6f4;
     --color-font2: #bac2de;
@@ -84,7 +84,7 @@ body, html, main{
 }
 
 #sidebar hr {
-    border: 1px var(--color2) solid;
+    border: 1px var(--color3) solid;
 }
 
 /* Table Striping, with overriding for the Table Header */
@@ -173,7 +173,7 @@ body, html, main{
 
 #content td {
     color: var(--color-font2);
-    border-bottom: 1px #444444 solid;
+    border-bottom: 1px #313244 solid;
 }
 
 #content th, #content td {
@@ -199,7 +199,7 @@ body, html, main{
     padding: 8px 0px 6px;
     border: 1px solid var(--color3);
     color: var(--color-font1);
-    background-color: var(--color3);
+    background-color: var(--color2);
     display: inline-block;
     text-align: center;
     transition: background-color 0.3s ease;
@@ -273,9 +273,9 @@ body, html, main{
 
 #content .statblock {
     font-size: 13px;
-    color: black;
+    color: #1e1e2e;
     line-height: 92%;
-    background-color: #6c7086;
+    background-color: #313244;
     font-family: "Courier New";
     border-radius: 4px;
     padding: 7px 10px 4px;
