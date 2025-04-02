@@ -94,20 +94,20 @@ def longStatBlock(test):
     threads     = int(OpenBench.utils.extract_option(test.dev_options, 'Threads'))
     hashmb      = int(OpenBench.utils.extract_option(test.dev_options, 'Hash'))
     timecontrol = test.dev_time_control + ['s', '']['=' in test.dev_time_control]
-    type_text   = 'SPRT' if test.test_mode == 'SPRT' else 'Conf'
 
     lower, elo, upper = OpenBench.stats.Elo(test.results())
 
     lines = [
-        'Elo   | %0.2f +- %0.2f (95%%)' % (elo, max(upper - elo, elo - lower)),
-        '%-5s | %s Threads=%d Hash=%dMB' % (type_text, timecontrol, threads, hashmb),
+        '# %s (%s, T=%d, %dMB)' % (test.test_mode, timecontrol, threads, hashmb),
+        '',
+        'Elo   | %0.2f ± %0.2f (95%%)' % (elo, max(upper - elo, elo - lower)),
     ]
 
     if test.test_mode == 'SPRT':
         lines.append('LLR   | %0.2f (%0.2f, %0.2f) [%0.2f, %0.2f]' % (
             test.currentllr, test.lowerllr, test.upperllr, test.elolower, test.eloupper))
 
-    lines.append('Games | N: %d W: %d L: %d D: %d' % test.as_nwld())
+    lines.append('Games | %d (W: %d L: %d D: %d)' % test.as_nwld())
 
     if test.use_penta:
         lines.append('Penta | [%d, %d, %d, %d, %d]' % test.as_penta())
