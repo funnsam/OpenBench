@@ -89,12 +89,8 @@ body, html, main{
 
 /* Table Striping, with overriding for the Table Header */
 
-#content .stripes tr:nth-child(odd):not(.table-header) {
+#content .stripes tr:not(.table-header) {
     background-color: var(--color1);
-}
-
-#content .stripes tr:nth-child(even):not(.table-header) {
-    background-color: var(--color2);
 }
 
 #content .stripes th {
@@ -102,14 +98,6 @@ body, html, main{
 }
 
 /* Tables that have hoverable table rows */
-
-#content .hoverable tr:nth-child(odd):hover:not(.table-header) {
-    box-shadow: inset 0 0 0 1000px #9399b22f;
-}
-
-#content .hoverable tr:nth-child(even):hover:not(.table-header) {
-    box-shadow: inset 0 0 0 1000px #9399b22f;
-}
 
 #content .hoverable tr:hover{
     box-shadow: inset 0 0 0 1000px #9399b22f;
@@ -142,13 +130,13 @@ body, html, main{
 #content .table-header th {
     color: var(--color-font3);
     font-weight: 400;
-    background-color: #181825;
+    background-color: var(--color2);
 }
 
 #content .table-small-header th {
     color: var(--color-font3);
     font-size: small;
-    background-color: #181825;
+    background-color: var(--color2);
 }
 
 /* Table Spacer for chaining Tables as a hack */
@@ -159,7 +147,7 @@ body, html, main{
 }
 
 #content .table-spacer-small th, #content .table-spacer-small tr {
-    background-color: #181825;
+    background-color: var(--color3);
     height: 0.4rem;
     padding: 0px;
 }
@@ -173,7 +161,7 @@ body, html, main{
 
 #content td {
     color: var(--color-font2);
-    border-bottom: 1px #313244 solid;
+    border-bottom: 1px var(--color3) solid;
 }
 
 #content th, #content td {
@@ -233,23 +221,7 @@ body, html, main{
     background-color: #11111b;
 }
 
-#content .btn-blue:hover {
-    box-shadow: inset 0 0 0 1000px #9399b22f;
-}
-
-#content .btn-start:hover {
-    box-shadow: inset 0 0 0 1000px #9399b22f;
-}
-
-#content .btn-preset:hover {
-    box-shadow: inset 0 0 0 1000px #9399b22f;
-}
-
-#content .btn-yellow:hover {
-    box-shadow: inset 0 0 0 1000px #9399b22f;
-}
-
-#content .btn-red:hover {
+#content .anchorbutton:not(.btn-disabled) {
     box-shadow: inset 0 0 0 1000px #9399b22f;
 }
 
@@ -273,28 +245,28 @@ body, html, main{
 
 #content .statblock {
     font-size: 13px;
-    color: #1e1e2e;
     line-height: 92%;
-    background-color: #313244;
+    background-color: var(--color2);
     font-family: "Courier New";
     border-radius: 4px;
+    border: 1px solid var(--color2);
     padding: 7px 10px 4px;
 }
 
 #content .statblock-green {
-    background-color: #a6e3a1;
+    border-color: #a6e3a1;
 }
 
 #content .statblock-blue {
-    background-color: #89b4fa;
+    border-color: #89b4fa;
 }
 
 #content .statblock-yellow {
-    background-color: #f9e2af;
+    border-color: #f9e2af;
 }
 
 #content .statblock-red {
-    background-color: #f38ba8;
+    border-color: #f38ba8;
 }
 
 #content .redlink {
