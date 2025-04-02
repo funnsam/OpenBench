@@ -9,7 +9,7 @@
 
 {% block content %}
 
-    {% if result.active %}
+    {% if not workload.finished %}
         <meta http-equiv="refresh" content="30">
     {% endif %}
 
