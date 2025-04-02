@@ -9,6 +9,10 @@
 
 {% block content %}
 
+    {% if not workload.finished %}
+        <meta http-equiv="refresh" content="30">
+    {% endif %}
+
     <div class="workload-container">
 
     <div id="config" style="display: block; overflow-x: auto;">
