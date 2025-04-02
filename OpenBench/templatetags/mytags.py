@@ -99,7 +99,6 @@ def longStatBlock(test):
 
     lines = [
         '# %s (%s, T=%d, %dMB)' % (test.test_mode, timecontrol, threads, hashmb),
-        '',
         'Elo   | %0.2f ± %0.2f (95%%)' % (elo, max(upper - elo, elo - lower)),
     ]
 
