@@ -221,7 +221,7 @@ body, html, main{
     background-color: #11111b;
 }
 
-#content .anchorbutton:not(.btn-disabled) {
+#content .anchorbutton:not(.btn-disabled):hover {
     box-shadow: inset 0 0 0 1000px #9399b22f;
 }
 
