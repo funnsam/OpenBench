@@ -312,15 +312,15 @@ td pre {
 }
 
 #content .error-message {
-    color: red;
+    color: #f38ba8;
 }
 
 #content .warning-message {
-    color: yellow;
+    color: #f9e2af;
 }
 
 #content .status-message {
-    color: green;
+    color: #89dceb;
 }
 
 #content .site-title {
