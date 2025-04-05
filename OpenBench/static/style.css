@@ -366,8 +366,7 @@ td pre {
     }
 }
 
-/* Styles for screen widths less than 768px */
-@media (max-width: 767px) {
+@media (max-width: 899px) {
     #sidebar {
         flex-basis: 100%;
         position: fixed;
