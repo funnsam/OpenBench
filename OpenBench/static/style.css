@@ -304,10 +304,6 @@ body, html, main {
     width: 100%;
 }
 
-#content .test-config tbody {
-    width: 100%;
-}
-
 #content .test-config .td-label {
     color: var(--color-font1);
 }
