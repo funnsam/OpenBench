@@ -433,7 +433,6 @@ def update_test(request, machine):
         test = Test.objects.select_for_update().get(id=test_id)
 
         if test.finished or test.deleted:
-            webhooks.test_stop(test)
             return { 'stop' : True }
 
         test.losses += losses # Trinomial
@@ -488,6 +487,8 @@ def update_test(request, machine):
             test.passed = test.finished = test.games >= test.max_games
 
         test.save()
+        if test.finished:
+            webhooks.test_finished(test)
 
     # Update Result object; No risk from concurrent access
     Result.objects.filter(id=result_id).update(
