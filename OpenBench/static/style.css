@@ -157,6 +157,7 @@ body, html, main{
 
 #content table {
     border-collapse: collapse;
+    margin: 0 auto;
 }
 
 #content td {
@@ -292,8 +293,8 @@ body, html, main{
 }
 
 #content #results {
-    display: inline-block;
-    width: inherit;
+    float: left;
+    width: 100%;
 }
 
 #content .test-config {
