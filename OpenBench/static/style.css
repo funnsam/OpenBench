@@ -166,6 +166,10 @@ body, html, main {
     margin: 0 auto;
 }
 
+#content tbody {
+    width: 100%;
+}
+
 #content td {
     color: var(--color-font2);
     border-bottom: 1px var(--color3) solid;
@@ -300,8 +304,8 @@ body, html, main {
     width: 100%;
 }
 
-#content .test-config {
-    font-size: 1.0rem;
+#content .test-config tbody {
+    width: 100%;
 }
 
 #content .test-config .td-label {
