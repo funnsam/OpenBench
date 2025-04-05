@@ -488,7 +488,7 @@ def update_test(request, machine):
 
         test.save()
         if test.finished:
-            webhooks.test_finished(test)
+            webhooks.test_finished(test_id, test)
 
     # Update Result object; No risk from concurrent access
     Result.objects.filter(id=result_id).update(
