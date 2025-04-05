@@ -1,5 +1,6 @@
 import requests
 
+url = "https://funnsam.pythonanywhere.com"
 wh_id = None
 wh_token = None
 
@@ -11,7 +12,7 @@ def test_finished(test_id, test):
         f"https://discord.com/api/webhooks/{wh_id}/{wh_token}",
         data = {
             "content": f"\
-`{test}` {'passed' if test.passed else 'failed' if test.failed else 'finished'}\n\
-[View on OpenBench](https://funnsam.pythonanywhere.com/test/{test_id})",
+`{test}` {'passed' if test.passed else 'failed' if test.failed else 'finished'} \
+([view on OpenBench]({url}/test/{test_id}))",
         },
     )
