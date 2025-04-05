@@ -44,6 +44,7 @@ from OpenBench.stats import TrinomialSPRT, PentanomialSPRT
 
 
 import OpenBench.views
+import OpenBench.webhooks
 
 
 class TimeControl(object):
@@ -432,6 +433,7 @@ def update_test(request, machine):
         test = Test.objects.select_for_update().get(id=test_id)
 
         if test.finished or test.deleted:
+            webhooks.test_stop(test)
             return { 'stop' : True }
 
         test.losses += losses # Trinomial
