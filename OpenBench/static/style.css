@@ -18,15 +18,21 @@ body {
 
     font-size: 16px;
     font-family: "Source Code Pro", monospace;
-    display:flex;
+    display: flex;
+
+    caret-color: #f5e0dc;
 }
 
-body, html, main{
+body, html, main {
     padding: 0;
     margin: 0;
     min-width: 100%;
     max-width: 100%;
     white-space: nowrap;
+}
+
+::selection {
+    background-color: #9399b22f;
 }
 
 #sidebar {
@@ -75,7 +81,7 @@ body, html, main{
 }
 
 #sidebar li:hover {
-    box-shadow: inset 0 0 0 1000px #9399b22f;
+    background-color: #9399b22f;
 }
 
 #sidebar .header {
@@ -101,7 +107,7 @@ body, html, main{
 /* Tables that have hoverable table rows */
 
 #content .hoverable tr:not(.table-header):hover{
-    box-shadow: inset 0 0 0 1000px #9399b22f;
+    background-color: #9399b22f;
 }
 
 /* Tables that are too long can wrap words */
@@ -283,13 +289,10 @@ body, html, main{
 }
 
 /* Test Views */
-
-#content #config {
-    float: left;
-}
-
-#content #actions {
-    float: left;
+#workload-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
 }
 
 #content #results {
@@ -353,7 +356,18 @@ td pre {
 }
 
 #content .active-highlight {
-    box-shadow: inset 0 0 0 1000px #9399b22f;
+    background-color: #9399b22f;
+}
+
+@media (max-width: 1199px) {
+    /* Test Views */
+    .workload-container {
+        flex-direction: column-reverse;
+    }
+
+    #content .long-statblock {
+        overflow-x: auto;
+    }
 }
 
 /* Styles for screen widths less than 768px */
@@ -437,24 +451,5 @@ td pre {
     /* The only exception is the test config table */
     #content .wrappable:not(.workload-container .test-config) td {
         word-break: normal;
-    }
-
-    /* Test Views */  
-    .workload-container {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #content #actions {
-        order: -1;
-        margin: 0 0 1rem 0;
-    }
-
-    #content #config {
-        float: none;
-    }
-
-    #content .long-statblock {
-        overflow-x: auto;
     }
 }
