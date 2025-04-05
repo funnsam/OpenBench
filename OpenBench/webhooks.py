@@ -11,7 +11,7 @@ def test_finished(test_id, test):
         f"https://discord.com/api/webhooks/{wh_id}/{wh_token}",
         data = {
             "content": f"\
-{test} finished (passed: {test.passed}, failed: {test.failed})
+{test} finished (passed: {test.passed}, failed: {test.failed})\n\
 [View all details](https://funnsam.pythonanywhere.com/test/{test_id})",
         },
     )
