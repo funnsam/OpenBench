@@ -3,6 +3,13 @@
 {% load mytags %}
 {% load static %}
 
+{% block opengraph %}
+    <title>OpenBench {{workload|git_diff_text}}</title>
+    <meta property="og:title" content="OpenBench {{type}} workflow">
+    <meta property="og:description" content="{{workload|git_diff_text}}">
+    <meta property="og:type" content="website">
+{% endblock %}
+
 {% block scripts %}
     <script src="{% static 'copy_text.js' %}?{{ static_version }}"></script>
 {% endblock %}
