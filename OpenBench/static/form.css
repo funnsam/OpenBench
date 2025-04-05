@@ -1,6 +1,6 @@
 #content .form .col-half {
     display: inline-block;
-    width: 25%;
+    flex: 1;
     white-space: normal;
     box-sizing: border-box;
     vertical-align: top;
@@ -8,7 +8,7 @@
 
 #content .form .col {
     display: inline-block;
-    width: 50%;
+    flex: 2;
     white-space: normal;
     margin-left: 0;
     box-sizing: border-box;
@@ -17,7 +17,7 @@
 
 #content .form .col-full {
     display: block;
-    width: 100%;
+    flex: 4;
     white-space: normal;
     margin-left: 0;
     box-sizing: border-box;
@@ -27,9 +27,8 @@
 /* Styles for screen widths less than 600px */
 
 @media (max-width: 1024px) {
-    #content .form .col {
-        display: block;
-        width: 100%;
+    #content .form {
+        flex-direction: column;
     }
 }
 
@@ -64,7 +63,7 @@
     padding: 9px 6px 6px;
     background-color: var(--color2);
     color: var(--color-font2);
-    font-family: "Source Code Pro", monospace;
+    font-family: inherit;
 }
 
 #content .row input[type="file"]{
@@ -91,7 +90,7 @@
     color: var(--color-font2);
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
-    font-family: "Courier Prime", serif;
+    font-family: inherit;
 }
 
 #content .row input[type="file"]::file-selector-button:hover {
@@ -101,6 +100,10 @@
 
 #content .row input[readonly] {
     color: var(--color-font1);
+}
+
+#content .form {
+    display: flex;
 }
 
 #content .form .flex {

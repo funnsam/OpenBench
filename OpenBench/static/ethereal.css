@@ -202,7 +202,7 @@ a:link, a:visited, a:hover, a:active {
     color: black;
     background-color: #CCCCCC;
     border-radius: 4px;
-    font-family: "Courier New";
+    font-family: inherit;
 }
 
 #content .green {
