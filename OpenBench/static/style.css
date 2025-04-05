@@ -289,7 +289,7 @@ body, html, main {
 }
 
 /* Test Views */
-#workload-container {
+.workload-container {
     display: flex;
     gap: 1rem;
     justify-content: space-around;
