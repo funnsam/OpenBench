@@ -166,10 +166,6 @@ body, html, main {
     margin: 0 auto;
 }
 
-#content tbody {
-    width: 100%;
-}
-
 #content td {
     color: var(--color-font2);
     border-bottom: 1px var(--color3) solid;
@@ -445,6 +441,11 @@ td pre {
     table {
         display: block;
         overflow-x: auto;
+    }
+
+    tbody {
+        display: table;
+        width: 100%;
     }
 
     /* Tables cannot break words to avoid issues such as single-letter lines */
