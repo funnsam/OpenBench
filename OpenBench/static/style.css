@@ -38,9 +38,8 @@ body, html, main{
     display: none;
 }
 
-#content-parent{
+#content-parent {
     flex-grow: 1;
-    justify-content: left;
     height: 100%;
 
     box-sizing: border-box;
@@ -52,7 +51,8 @@ body, html, main{
     max-width: calc(min(100%,1000px));
     width: 100%;
     white-space: nowrap;
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
 }
 
 #sidebar ul {
