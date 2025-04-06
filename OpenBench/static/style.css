@@ -248,6 +248,11 @@ body, html, main {
     cursor: pointer;
 }
 
+#content .test-mode-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
 /* Short StatBlock to show SPRT and Test Results */
 
 #content .statblock {
@@ -341,7 +346,6 @@ td pre {
     color: var(--color-font1);
     transform: scale(0.70);
 }
-
 
 #content .numeric {
     text-align: right;
