@@ -248,7 +248,7 @@ body, html, main {
     cursor: pointer;
 }
 
-#content .test-mode-buttons {
+#content #test-mode-buttons {
     display: flex;
     justify-content: space-around;
 }
