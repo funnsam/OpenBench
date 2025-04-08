@@ -328,6 +328,10 @@ td pre {
     color: #89dceb;
 }
 
+#content .time-message {
+    color: #a6adc8;
+}
+
 #content .site-title {
     color: var(--color-font3);
 }

@@ -57,6 +57,15 @@
                     }
                 }
 
+                {
+                    var msg = document.getElementById("time-loaded");
+
+                    if (msg) setInterval(() => {
+                        var current_date = Math.round(new Date().getTime() / 1000);
+                        msg.innerText = `${current_date - {% now 'U' %}}s`;
+                    }, 1000);
+                }
+
             }, false);
 
             function toggle_sidebar() {
@@ -159,6 +168,10 @@
                         <pre>{{request.session.status_message}}</pre>
                     </div>
                 {% endif %}
+
+                <div class="time-message">
+                    <pre>Time since page loaded: <span id="time-loaded"></span></pre>
+                </div>
 
                 {% block content %}
                 {% endblock %}
