@@ -360,7 +360,7 @@ td pre {
 }
 
 #content .active-highlight {
-    background-color: #9399b22f;
+    background-color: #9399b22f !important;
 }
 
 @media (max-width: 1199px) {
