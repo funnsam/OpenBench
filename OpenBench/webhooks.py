@@ -13,6 +13,6 @@ def test_finished(test_id, test):
         data = {
             "content": f"\
 `{test}` {'passed' if test.passed else ('failed' if test.failed else 'finished')} \
-([view on OpenBench]({url}/test/{test_id}))",
+([view on OpenBench]( {url}/test/{test_id} ))",
         },
     )
