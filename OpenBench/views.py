@@ -231,7 +231,7 @@ def profile_config(request):
 
     for (engine, current_repo) in profile.repos.items():
         repo_name = request.POST.get('engine-repo-%s' % (engine), '').removesuffix('/')
-        repo = 'https://github.com/%s' % (repo_name)
+        repo = 'https://codeberg.org/%s' % (repo_name)
 
         if repo != current_repo and repo_name:
             changes += 'Updated Engine: %s to use %s\n' % (engine, repo)
@@ -245,8 +245,8 @@ def profile_config(request):
 
     if engine_name != 'None' and engine_repo:
 
-        if not engine_repo.startswith('https://github.com/'):
-            return redirect(request, '/profile/', error='Repositories must be on Github')
+        if not engine_repo.startswith('https://codeberg.org/'):
+            return redirect(request, '/profile/', error='Repositories must be on Codeberg')
 
         if not profile.engine:
             profile.engine = engine_name

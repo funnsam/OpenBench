@@ -260,9 +260,9 @@ def verify_draw_adj(errors, request, field):
     except: errors.append('Invalid Draw Adjudication Setting. Try "None"?')
 
 def verify_github_repo(errors, request, field):
-    pattern = r'^https:\/\/github\.com\/[A-Za-z0-9-]+\/[A-Za-z0-9_.-]+\/?$'
+    pattern = r'^https:\/\/codeberg\.org\/[A-Za-z0-9-]+\/[A-Za-z0-9_.-]+\/?$'
     try: assert re.match(pattern, request.POST[field])
-    except: errors.append('Sources must be found on https://github.com/<User>/<Repo>')
+    except: errors.append('Sources must be found on https://codeberg.org/<User>/<Repo>')
 
 def verify_network(errors, request, field, field_name, engine_field):
     try:
@@ -377,7 +377,7 @@ def collect_github_info(errors, request, field):
     bysha  = bool(re.search('^[0-9a-fA-F]{40}$', branch))
 
     # All API requests will share this common path. Some engines are private.
-    base    = request.POST['%s_repo' % (field)].replace('github.com', 'api.github.com/repos')
+    base    = request.POST['%s_repo' % (field)].replace('codeberg.org', 'codeberg.org/api/v1/repos')
     engine  = request.POST['%s_engine' % (field)]
     private = OpenBench.config.OPENBENCH_CONFIG['engines'][engine]['private']
     headers = {}
@@ -398,8 +398,8 @@ def collect_github_info(errors, request, field):
         return (None, None)
 
     # Avoid leaking our credentials to other websites
-    if not base.startswith('https://api.github.com/'):
-        errors.append('OpenBench may only reach Github\'s API')
+    if not base.startswith('https://codeberg.org/api/v1'):
+        errors.append('OpenBench may only reach Codeberg\'s API')
         return (None, None)
 
     ## Step 2: Connect to the Github API for the given Branch or Commit SHA.
@@ -414,20 +414,22 @@ def collect_github_info(errors, request, field):
     try: # Fetch data from the Github API
 
         # Lookup branch or commit sha, but will fail for tags
-        url  = OpenBench.utils.path_join(base, 'commits' if bysha else 'branches', branch)
+        url  = OpenBench.utils.path_join(base, *(['git', 'commits', branch] if bysha else ['branches', branch]))
         data = requests.get(url, headers=headers).json()
 
         # Check to see if the branch name was actually a tag name
+        #TODO:
         if not bysha and 'commit' not in data:
-            url  = OpenBench.utils.path_join(base, 'commits', branch)
+            url  = OpenBench.utils.path_join(base, 'tags', branch)
             data = requests.get(url, headers=headers).json()
 
         # Actual branches have to go one layer deeper
         elif not bysha: data = data['commit']
+        elif bysha: data = { 'id': data['sha'], 'message': data['commit']['message'] }
 
         # Check that all the data we need going forward is present
-        assert 'message' in data['commit'] and 'sha' in data
-        assert private or 'sha' in data['commit']['tree']
+        assert 'message' in data and 'id' in data
+        # assert private or 'sha' in data['commit']['tree']
 
     except: # Unable to find for whatever reason
         traceback.print_exc()
@@ -435,15 +437,15 @@ def collect_github_info(errors, request, field):
         return (None, None)
 
     # Extract the bench from the web form, or from the commit message
-    if not (bench := determine_bench(request, field, data['commit']['message'])):
+    if not (bench := determine_bench(request, field, data['message'])):
         errors.append('Unable to parse a Bench for %s' % (branch))
         return (None, None)
 
     # Public Engines: Construct the .zip download and return everything
     if not private:
-        treeurl = data['commit']['tree']['sha'] + '.zip'
+        treeurl = data['id'] + '.zip'
         source  = OpenBench.utils.path_join(request.POST['%s_repo' % (field)], 'archive', treeurl)
-        return (source, branch, data['sha'], bench), True
+        return (source, branch, data['id'], bench), True
 
     ## Step 3: Construct the URL for the API request to list all Artifacts
     ## [A] OpenBench artifacts are always run via a file named openbench.yml

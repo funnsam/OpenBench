@@ -1,11 +1,11 @@
 {
     "private" : false,
-    "nps"     : 923273,
-    "source"  : "https://codeberg.org/funnsam/Dysprosium",
+    "nps"     : 23277000,
+    "source"  : "https://codeberg.org/funnsam/Holmium",
 
     "build" : {
         "path"      : "",
-        "compilers" : ["cargo"],
+        "compilers" : ["zig"],
         "cpuflags"  : [],
         "systems"   : ["Windows", "Linux"]
     },
