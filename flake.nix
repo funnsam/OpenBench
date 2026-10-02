@@ -32,6 +32,8 @@
                     (python3.withPackages (python-pkgs: [
                        django-htmlmin
                        python-pkgs.django_4
+                       python-pkgs.psutil
+                       python-pkgs.py-cpuinfo
                        python-pkgs.requests
                        python-pkgs.scipy
                     ]))
