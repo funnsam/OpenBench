@@ -25,6 +25,7 @@ SECRET_KEY = '%mvnbi@0&2!(!w%=ptcqh92zpg(@681b9im)-^3p5(tnzhss#-'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://chess.funn.farted.net']
 
 HTML_MINIFY   = True
 APPEND_SLASH  = True
