@@ -439,8 +439,8 @@ def collect_github_info(errors, request, field):
     info = request.POST.get('info') or (
         strip_message(data['message']) if request.POST['dev_branch'] != request.POST['base_branch'] else ''
     )
-    source = OpenBench.utils.path_join(base, 'zipball', data['sha'])
-    return (source, branch, data['sha'], bench), True
+    source = OpenBench.utils.path_join(base, 'zipball', data['id'])
+    return (source, branch, data['id'], bench), True
 
 def requests_illegal_fork(request, field):
 
