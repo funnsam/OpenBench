@@ -437,7 +437,7 @@ def collect_github_info(errors, request, field):
         return
 
     info = request.POST.get('info') or (
-        strip_message(data['commit']['message']) if request.POST['dev_branch'] != request.POST['base_branch'] else ''
+        strip_message(data['message']) if request.POST['dev_branch'] != request.POST['base_branch'] else ''
     )
     source = OpenBench.utils.path_join(base, 'zipball', data['sha'])
     return (source, branch, data['sha'], bench), True
