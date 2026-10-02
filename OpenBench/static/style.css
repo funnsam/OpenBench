@@ -36,8 +36,9 @@ body, html, main {
 }
 
 #sidebar {
-    padding: 60px 16px 16px 16px;
+    padding: 60px 10px 16px 10px;
     flex-basis: calc(min(300px, max(200px, 10%)));
+    z-index: 5;
 }
 
 #sidebar-toggle {
@@ -49,8 +50,8 @@ body, html, main {
     height: 100%;
 
     box-sizing: border-box;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 #content {
@@ -113,7 +114,7 @@ body, html, main {
 /* Tables that are too long can wrap words */
 
 #content .wrappable td {
-    white-space: pre-wrap;
+    white-space: nowrap;
     word-break: break-word;
     word-wrap: break-word;
 }
@@ -300,6 +301,30 @@ body, html, main {
     justify-content: space-around;
 }
 
+#content .test-list {
+    width: 100%;
+}
+
+#content .test-list tr td.test-info {
+    width: 100%;
+    max-width: 0;
+}
+
+#content .test-list tr td.test-info div {
+    max-height: 5.8em;
+    overflow: hidden;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+#content #config {
+    float: left;
+}
+
+#content #actions {
+    float: left;
+}
+
 #content #results {
     float: left;
     width: 100%;
@@ -353,6 +378,10 @@ td pre {
 
 #content .numeric {
     text-align: right;
+}
+
+#content .summary-table td {
+    font-size: 14px;
 }
 
 #content .branch_name {
@@ -460,4 +489,47 @@ td pre {
     #content .wrappable:not(.workload-container .test-config) td {
         word-break: normal;
     }
+
+    /* Test Views */
+    .workload-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #content #actions {
+        order: -1;
+        margin: 0 0 1rem 0;
+    }
+
+    #content #config {
+        float: none;
+    }
+
+    #content .long-statblock {
+        overflow-x: auto;
+    }
+
+    #content .test-list tr td.test-info {
+        display: none;
+    }
+}
+
+
+/* On-hover for long engine options in workloads */
+
+#content .engine-options {
+    position: relative;
+}
+
+#content .engine-options:hover .engine-options-popup {
+    display: block;
+}
+
+#content .engine-options-popup {
+    display: none;
+    position: absolute;
+    padding: 8px 12px;
+    background-color: #000;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
