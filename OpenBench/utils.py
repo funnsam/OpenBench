@@ -434,8 +434,8 @@ def book_delete(request, book):
 def engine_verify(request, name):
 
     # Sources are Github repos, which is where the Client clones the Engine from
-    if not request.POST['source'].startswith('https://github.com/'):
-        return 'Sources must start with https://github.com/'
+    if not request.POST['source'].startswith('https://codeberg.org/'):
+        return 'Sources must start with https://codeberg.org/'
 
     try: assert int(request.POST['nps']) > 0
     except: return 'NPS must be a positive integer'
