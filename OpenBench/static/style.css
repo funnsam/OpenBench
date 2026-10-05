@@ -479,11 +479,6 @@ td pre {
         overflow-x: auto;
     }
 
-    tbody {
-        display: table;
-        width: 100%;
-    }
-
     /* Tables cannot break words to avoid issues such as single-letter lines */
     /* The only exception is the test config table */
     #content .wrappable:not(.workload-container .test-config) td {
